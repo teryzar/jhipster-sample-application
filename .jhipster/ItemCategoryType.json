@@ -1,0 +1,30 @@
+{
+    "name": "ItemCategoryType",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "categories",
+            "otherEntityName": "itemCategory",
+            "otherEntityRelationshipName": "itemCategoryType"
+        }
+    ],
+    "changelogDate": "20180926200036",
+    "entityTableName": "item_category_type",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,21 @@
+{
+    "name": "Tender",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipName": "tenderType",
+            "otherEntityName": "tenderType",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20180926200037",
+    "entityTableName": "tender",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

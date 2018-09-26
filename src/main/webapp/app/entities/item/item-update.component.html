@@ -1,0 +1,93 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-item-heading">Create or edit a Item</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!item.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="item.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_articleNr">Article Nr</label>
+                    <input type="number" class="form-control" name="articleNr" id="field_articleNr"
+                        [(ngModel)]="item.articleNr" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_articleName">Article Name</label>
+                    <input type="text" class="form-control" name="articleName" id="field_articleName"
+                        [(ngModel)]="item.articleName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_primeCost">Prime Cost</label>
+                    <input type="number" class="form-control" name="primeCost" id="field_primeCost"
+                        [(ngModel)]="item.primeCost" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_price">Price</label>
+                    <input type="number" class="form-control" name="price" id="field_price"
+                        [(ngModel)]="item.price" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_availableForSale">Available For Sale</label>
+                    <input type="checkbox" class="form-control" name="availableForSale" id="field_availableForSale"
+                        [(ngModel)]="item.availableForSale" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_scaleItem">Scale Item</label>
+                    <input type="checkbox" class="form-control" name="scaleItem" id="field_scaleItem"
+                        [(ngModel)]="item.scaleItem" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_ean">Ean</label>
+                    <input type="text" class="form-control" name="ean" id="field_ean"
+                        [(ngModel)]="item.ean" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_accountRest">Account Rest</label>
+                    <input type="checkbox" class="form-control" name="accountRest" id="field_accountRest"
+                        [(ngModel)]="item.accountRest" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_rest">Rest</label>
+                    <input type="number" class="form-control" name="rest" id="field_rest"
+                        [(ngModel)]="item.rest" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_lowRest">Low Rest</label>
+                    <input type="number" class="form-control" name="lowRest" id="field_lowRest"
+                        [(ngModel)]="item.lowRest" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_parentItem">Parent Item</label>
+                    <input type="number" class="form-control" name="parentItem" id="field_parentItem"
+                        [(ngModel)]="item.parentItem" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_parentItem">Parent Item</label>
+                    <select class="form-control" id="field_parentItem" name="parentItem" [(ngModel)]="item.parentItem" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="itemOption.id === item.parentItem?.id ? item.parentItem : itemOption" *ngFor="let itemOption of items; trackBy: trackItemById">{{itemOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_itemCategory">Item Category</label>
+                    <select class="form-control" id="field_itemCategory" name="itemCategory" [(ngModel)]="item.itemCategory" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="itemCategoryOption.id === item.itemCategory?.id ? item.itemCategory : itemCategoryOption" *ngFor="let itemCategoryOption of itemcategories; trackBy: trackItemCategoryById">{{itemCategoryOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

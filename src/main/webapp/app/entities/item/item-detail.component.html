@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="item">
+            <h2><span>Item</span> {{item.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Article Nr</span></dt>
+                <dd>
+                    <span>{{item.articleNr}}</span>
+                </dd>
+                <dt><span>Article Name</span></dt>
+                <dd>
+                    <span>{{item.articleName}}</span>
+                </dd>
+                <dt><span>Prime Cost</span></dt>
+                <dd>
+                    <span>{{item.primeCost}}</span>
+                </dd>
+                <dt><span>Price</span></dt>
+                <dd>
+                    <span>{{item.price}}</span>
+                </dd>
+                <dt><span>Available For Sale</span></dt>
+                <dd>
+                    <span>{{item.availableForSale}}</span>
+                </dd>
+                <dt><span>Scale Item</span></dt>
+                <dd>
+                    <span>{{item.scaleItem}}</span>
+                </dd>
+                <dt><span>Ean</span></dt>
+                <dd>
+                    <span>{{item.ean}}</span>
+                </dd>
+                <dt><span>Account Rest</span></dt>
+                <dd>
+                    <span>{{item.accountRest}}</span>
+                </dd>
+                <dt><span>Rest</span></dt>
+                <dd>
+                    <span>{{item.rest}}</span>
+                </dd>
+                <dt><span>Low Rest</span></dt>
+                <dd>
+                    <span>{{item.lowRest}}</span>
+                </dd>
+                <dt><span>Parent Item</span></dt>
+                <dd>
+                    <span>{{item.parentItem}}</span>
+                </dd>
+                <dt><span>Parent Item</span></dt>
+                <dd>
+                    <div *ngIf="item.parentItem">
+                        <a [routerLink]="['/item', item.parentItem?.id, 'view']">{{item.parentItem?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Item Category</span></dt>
+                <dd>
+                    <div *ngIf="item.itemCategory">
+                        <a [routerLink]="['/item-category', item.itemCategory?.id, 'view']">{{item.itemCategory?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/item', item.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

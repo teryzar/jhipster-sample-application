@@ -1,0 +1,72 @@
+{
+    "name": "Item",
+    "fields": [
+        {
+            "fieldName": "articleNr",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "articleName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "primeCost",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "price",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "availableForSale",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "scaleItem",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "ean",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "accountRest",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "rest",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "lowRest",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "parentItem",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "parentItem",
+            "otherEntityName": "item",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "itemCategory",
+            "otherEntityName": "itemCategory",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20180926200034",
+    "entityTableName": "item",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
