@@ -1,0 +1,41 @@
+entity Item { 
+	articleNr Long,
+    articleName String,
+	primeCost BigDecimal,
+    price BigDecimal,
+    availableForSale Boolean,
+    scaleItem Boolean,
+    ean String,
+    accountRest Boolean,
+    rest BigDecimal,
+    lowRest BigDecimal,
+    parentItem Long
+}
+
+entity ItemCategory {
+	name String,
+    description String
+}
+
+entity ItemCategoryType {
+	name String,
+    description String
+}
+
+entity Tender {
+	
+}
+
+entity TenderType {
+	
+} 
+
+relationship OneToMany {
+	ItemCategory {itemCategory} to Item,
+    ItemCategoryType {categories} to ItemCategory,
+    TenderType {tenderTypes} to Tender
+}
+
+relationship ManyToOne {
+	Item {parentItem} to Item
+}
